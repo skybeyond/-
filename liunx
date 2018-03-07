@@ -1,1 +1,10 @@
+
 netstat -nltp |grep 80  查看80端口占用
+
+netstat -nat|grep -i "80"|wc -l  统计80端口连接数
+
+ps -ef|grep httpd|wc -l 统计httpd协议连接数
+
+netstat -an | grep ESTABLISHED | wc -l 查看apache当前并发访问数
+
+ps aux|grep httpd|wc -l 查看有多少个进程数
