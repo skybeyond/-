@@ -31,5 +31,5 @@ centos7 安装mysql：
 
   6、重启 mysqld 服务，再用新密码登录即可
   MySQL 5.7 在初始安装后（CentOS7 操作系统）会生成随机初始密码，并在 /var/log/mysqld.log 中有记录，可以通过 cat 命令查看，找 password 关键字
-  找到密码后，在本机以初始密码登录，并且（也只能）通过 alter user 'root'@'localhost' identified by 'root' 命令，修改 root 用户的密码为 root，然后退出，重新以root用户和刚设置的密码进行登录即可。
+  找到密码后，在本机以初始密码登录，并且（也只能）通过 alter user 'root'@'localhost' identified by '密码' 命令，修改 root 用户的密码为 root，然后退出，重新以root用户和刚设置的密码进行登录即可。
 具体安装：https://blog.csdn.net/a774630093/article/details/79270080
