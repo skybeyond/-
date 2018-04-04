@@ -33,3 +33,28 @@ centos7 安装mysql：
   MySQL 5.7 在初始安装后（CentOS7 操作系统）会生成随机初始密码，并在 /var/log/mysqld.log 中有记录，可以通过 cat 命令查看，找 password 关键字
   找到密码后，在本机以初始密码登录，并且（也只能）通过 alter user 'root'@'localhost' identified by '密码' 命令，修改 root 用户的密码为 root，然后退出，重新以root用户和刚设置的密码进行登录即可。
 具体安装：https://blog.csdn.net/a774630093/article/details/79270080
+
+
+liunx下mysql的一些基本操作：
+授权：
+grant all on *.* to 'root'@'%' identified by '123456' with grant option; //允许账户root从任何主机连接到所有数据库（*.*）;
+grant all on test.* to 'user'@'%' identified by '123456' with grant option; //允许账户user从任何主机连接到test数据库
+
+释放远程授权：
+revoke all on *.* from 'user'@'%'; //禁止用户user从任何主机访问所有数据库
+revoke all on test.* from 'user'@'%'; //禁止用户user从任何主机访问test数据库
+
+flush privileges; //刷新系统授权表
+
+
+基本命令：
+show databases; //显示数据库
+create database test;//创建数据库
+use test; //选择数据库
+drop database test //删除数据库 不在提醒
+show tables；//显示表
+describe tablename; //显示具体的表结构
+
+select version(),current_date; //显示当前mysql的版本号和当前日期
+
+select user(); //显示用户
