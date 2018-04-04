@@ -2,3 +2,12 @@
 长连接主要用于在少数客户端与服务端的频繁通信，因为这时候如果用短连接频繁通信常会发生Socket出错，并且频繁创建Socket连接也是对资源的浪费。
 1、在频繁的与数据库服务通信，并且又非高并发的情况下，使用长连接更合适；
 2、太多持久连接，大部分是sleep状态的，或者系统是高并发的，使用短连接更合适。
+
+
+centos7 安装mysql：
+1.卸载mariadb  rpm -qa | grep maria* ->  yum -y remove mariadb-libs.x86_64
+2.获取mysql的rpm包： wget https://repo.mysql.com//mysql57-community-release-el7-11.noarch.rpm
+3.安装rpm包：rpm -ivh mysql57-community-release-el7-11.noarch.rpm
+4.安装mysql：yum install mysql-server
+5.需要重置密码
+具体安装：https://blog.csdn.net/a774630093/article/details/79270080
