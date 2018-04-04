@@ -58,3 +58,5 @@ describe tablename; //显示具体的表结构
 select version(),current_date; //显示当前mysql的版本号和当前日期
 
 select user(); //显示用户
+
+create user 'jinwei'@'localhost' identified by '123'; //创建一个用户
