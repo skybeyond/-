@@ -12,3 +12,15 @@ ps aux|grep httpd|wc -l 查看有多少个进程数
 firewall-cmd --permanent --zone=public --add-rich-rule="rule family="ipv4" source address="11.22.33.14/22" service name="ssh" reject"
 屏蔽某个ip访问服务器的端口
 
+
+sh是一个shell。运行sh a.sh，表示我使用sh来解释这个脚本,楼上已经演示了，可以不要执行权限；如果我直接运行./a.sh，首先你会查找脚本第一行是否指定了解释器，如果没指定，那么就用当前系统默认的shell(大多数linux默认是bash)，如果指定了解释器，那么就将该脚本交给指定的解释器比如a.run文件内容是这个:#!/usr/bin/python
+print("This is Python script")
+那么你如果运行./a.run，结果就是输出一行文字，但是如果你运行sh a.run，会报错
+
+[feishu@localhost tmp]$ ./a.run 
+This is Python Script
+[feishu@localhost tmp]$ sh a.run 
+a.run: line 2: syntax error near unexpected token `"This is Python Script"'
+a.run: line 2: `print("This is Python Script")'
+
+
