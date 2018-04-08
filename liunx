@@ -8,3 +8,7 @@ ps -ef|grep httpd|wc -l 统计httpd协议连接数
 netstat -an | grep ESTABLISHED | wc -l 查看apache当前并发访问数
 
 ps aux|grep httpd|wc -l 查看有多少个进程数
+
+firewall-cmd --permanent --zone=public --add-rich-rule="rule family="ipv4" source address="11.22.33.14/22" service name="ssh" reject"
+屏蔽某个ip访问服务器的端口
+
