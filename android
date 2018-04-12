@@ -3,3 +3,7 @@ onResume是在启动activity启动之后才能执行的，也就是恢复执行�
 一个Activity启动另一个Activity: onPause()->onStop(), 再返回：onRestart()->onStart()->onResume()
 程序按back 退出： onPause()->onStop()->onDestory(),再进入：onCreate()->onStart()->onResume();
 程序按home 退出： onPause()->onStop(),再进入：onRestart()->onStart()->onResume();
+
+
+
+android http://www.javaapk.com/demo/
