@@ -24,3 +24,12 @@ a.run: line 2: syntax error near unexpected token `"This is Python Script"'
 a.run: line 2: `print("This is Python Script")'
 
 
+添加普通用户
+useradd -d /home/levi levi
+passwd levi
+
+赋予ssh登录权限
+vi /etc/ssh/sshd_config 
+AllowUsers:levi
+
+
