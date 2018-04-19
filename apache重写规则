@@ -1,0 +1,26 @@
+#### 启动重写引擎
+RewriteEngine On
+#### 全局生效
+RewriteBase /
+# 如果请求符合下列规则,则忽略转发
+RewriteRule ^index\.php$ - [L]
+## 如果请求的文件存在，则忽略重写规则
+RewriteCond %{REQUEST_FILENAME} !-f
+## 如果请求的目录存在，则忽略重写规则
+RewriteCond %{REQUEST_FILENAME} !-d
+#执行重写指向
+RewriteRule . /index.php [L]
+ErrorDocument 404 /error-404.html
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^/api/(.*)$ /api.php/$1 [L]
+RewriteRule ^/minimal/(.*)$ /minimal.php/$1 [L]
+RewriteRule ^/mod/(.*)$ /mod.php/$1 [L]
+#条件判断，只对下面一条Rewrite语句有效
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /index.php/$1 [L]
+</IfModule>
