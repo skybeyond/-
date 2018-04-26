@@ -18,3 +18,29 @@ var formData = new FormData();
             request.open("POST", "https://m.shop.hapi123.net/qqmusic/bm");
             request.send(formData);
         });
+
+
+
+jqajax上传图片
+<form id="ff" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" value="上传文件">
+    <input type="text" name="username" value="">
+    <input type="text" name="password" value="">
+    <input type="submit" class="k" value="jj">
+</form>
+$(".k").on('click',function(){
+
+            var form = new FormData($("#ff")[0]);
+//            console.log(form);
+//            var form = $("#ff").serializeArray();
+            $.ajax({
+                type:"POST",
+                data:form,
+                url:"/m.php",
+                processData:false,
+                contentType: false,
+                success:function(e){
+
+                }
+            });
+        })
