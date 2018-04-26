@@ -8,7 +8,7 @@ onpaste 粘贴触发函数
 跨站点XMLHttpRequest
 
 现代浏览器通过实现Web应用程序（WebApps）工作组的跨站点请求访问控制标准来支持跨站点请求。
-只要服务器配置为允许来自Web应用程序源的请求，XMLHttpRequest就可以工作。否则，INVALID_ACCESS_ERR会引发异常。
+只要服务器配置为允许来自Web应用程序源的请求（Access-Control-Allow-Origin），XMLHttpRequest就可以工作。否则，INVALID_ACCESS_ERR会引发异常。
 
 var formData = new FormData();
         formData.append("username", "Groucho");
