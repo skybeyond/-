@@ -1,0 +1,39 @@
+1.如果是输入框，可以通过 select() 方法，选中输入框的文本，然后调用  copy 命令，将文本复制到剪切板
+但是 select() 方法只对 <input> 和 <textarea> 有效，//不能隐藏否则不生效
+<style type="text/css">
+   .wrapper {position: relative;}
+   #input {position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;}
+</style>
+
+<div class="wrapper">
+   <p id="text">我把你当兄弟你却想着复制我？</p>
+   <textarea id="input">这是幕后黑手</textarea>
+   <button onclick="copyText()">copy</button>
+</div>
+
+  <script type="text/javascript">
+    function copyText() {
+      var text = document.getElementById("text").innerText;
+      var input = document.getElementById("input");
+      input.value = text; // 修改文本框的内容
+      input.select(); // 选中文本
+      document.execCommand("copy"); // 执行浏览器复制命令
+      alert("复制成功");
+    }
+  </script>
+  Firefox 48.0，Chrome 60.0，IE 8 都能用
+  
+  2.
+  <script type="text/javascript" src="clipboard.min.js"></script>
+ 
+  window.onload = function () {
+            //document.getElementById("#copyBtn").click();
+            $("#copyBtn").trigger("click");
+            var clipboard = new Clipboard("#copyBtn");
+            clipboard.on('success', function(e) {
+            });
+
+            clipboard.on('error', function(e) {
+            });
+        }
+<a href="javascript:;" id="copyBtn" class="f-r tac" data-clipboard-text="sad" data-clipboard-action="copy" >点击复制ID</a>
